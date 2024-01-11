@@ -4,9 +4,6 @@
   "description": "A special library created to use Telegrambot",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "repository": "https://github.com/bug4you/",
-  "author": "Dilshod Fayzullayev <brogrammer.devs@gmail.com>",
-  "license": "MIT",
   "private": false,
   "scripts": {
     "debug": "rollup -c",
@@ -16,6 +13,19 @@
   },
   "files": [
     "dist"
+  ],
+  "author": "Dilshod Fayzullayev <brogrammer.devs@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bug4you/telegramjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bug4you/telegramjs/issues"
+  },
+  "homepage": "https://github.com/bug4you/telegramjs#readme",
+  "keywords": [
+    "telegrambot", "telegramjs", "telegram-bot"
   ],
   "devDependencies": {
     "@babel/core": "^7.23.7",
