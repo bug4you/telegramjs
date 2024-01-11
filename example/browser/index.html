@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connecting to the Telegram bot through a browser</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <script src="../../dist/@bug4you/telegramjs.min.js"></script>
+
+    <style>
+        * {
+            font-family: "Comfortaa", sans-serif;
+        }
+    </style>
+</head>
+<body class="min-vh-100 d-flex justify-content-center align-items-center">
+<div class="card" style="width: 500px">
+    <div class="card-header h3 text-center">Telegramga xabar jo'natish</div>
+    <div class="card-body">
+        <form>
+            <div class="mb-3">
+                <input required placeholder="Telegram bot token" type="text" aria-label="telegram bot token" class="form-control">
+            </div>
+            <div class="mb-3">
+                <input required placeholder="chatId, channel or group username" type="text" aria-label="telegram bot token" class="form-control">
+            </div>
+            <div class="mb-3">
+                <textarea required placeholder="A message to send to Telegram" rows="3" aria-label="telegram bot token" class="form-control"></textarea>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-outline-warning">Send a message</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    function submitHandler(e) {
+        e.preventDefault();
+        console.log(e)
+        const [tokenEl, chatIdEl, messageEl] = e.target;
+        let init = new TelegramBot.Init(tokenEl.value);
+        (async ()=> {
+            let resp = await init.sendMessage(messageEl.value, chatIdEl.value, {reply_to_message_id: 69});
+            console.log(resp);
+        })()
+    }
+
+    document.querySelector("form").addEventListener("submit", submitHandler);
+</script>
+</body>
+</html>
